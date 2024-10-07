@@ -257,7 +257,9 @@ on:
 
 name: Dependent job execution
 on: 
- push: [main]
+ push: 
+  branches:
+   - main
 jobs:
  reviewJob:
   runs-on: ubuntu-latest
