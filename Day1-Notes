@@ -311,7 +311,21 @@ jobs:
 
 Save the file and check the exeuction
 
+======================================================
+Run workflow on the given scehdule:
+======================================================
 
+name: Dependent job execution
+on: 
+ schedule:
+  - cron: "* * * * *"
+ workflow_dispatch:
+jobs:
+ reviewJob:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Perform code review
+     run: echo "pmd review..."
 
 
 
