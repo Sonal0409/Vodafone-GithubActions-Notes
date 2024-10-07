@@ -170,11 +170,38 @@ jobs:
 Save the file and run it 
 Go to Actions --> click on your workflow name on left side --> click on Run workflow.
 ===========================================================================
+Demo 3:
+
+Go repo--> .github/workflows folder --> open the main.yml file --> remove the previous code and add the below code
+
+name: My first workflow with multi-line code
+on: workflow_dispatch     
+jobs:
+ job1:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Print a Greeting
+     run: echo "Hello All"
+   - name: Print goodbyee
+     run : echo "Bye Bye"
+ job2:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Run a one-line script 
+     run: echo "Hello World"
+ buildJob:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Run a multi-line script 
+     run: |
+      hostname -s
+      echo "Compile code"
+      echo "maven test code"
+      echo "maven package code"
 
 
-
-
-
+Save the file and run it 
+Go to Actions --> click on your workflow name on left side --> click on Run workflow.
 
 
 
