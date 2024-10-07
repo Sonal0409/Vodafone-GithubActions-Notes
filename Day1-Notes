@@ -290,10 +290,26 @@ jobs:
    - name: Perform code review
      run: echo "pmd review..."
 
+6. Run the workflow when there is a push on main branch, when a pull req is merged on main branch or you cna manually
+
+name: Dependent job execution
+on: 
+ push: 
+  branches:
+   - main
+ pull_request:
+  branches:
+   - main
+ workflow_dispatch:
+jobs:
+ reviewJob:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Perform code review
+     run: echo "pmd review..."
 
 
-
-
+Save the file and check the exeuction
 
 
 
