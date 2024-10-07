@@ -327,7 +327,25 @@ jobs:
    - name: Perform code review
      run: echo "pmd review..."
 
+=======================================================
+IF conditions in workflow jobs
+================================================
 
+name: Conditional workflow 
+on: workflow_dispatch
+jobs:
+ job1:
+  runs-on: ubuntu-latest
+  steps:
+   - name: generate a random number 
+     id: generator
+     run: echo "num=$RANDOM % 2"
+   - name: conditions 1
+     if: steps.generator.outputs.num == 0
+     run: echo zero
+   - name: conditions 2
+     if: steps.generator.outputs.num == 1
+     run: echo one
 
 
 
