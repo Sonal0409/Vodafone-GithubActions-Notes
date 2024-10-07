@@ -272,8 +272,23 @@ Save the file
 Create a new branch and commit on the new branch.
 Observation: the workflow will not trigger.
 
+5. Pull request: whenever the pull request is merged to main branch, workflow will trigger.
 
-
+name: Dependent job execution
+on: 
+ push:
+  branches:
+   - main
+ pull_request:
+  branches:
+   - main
+ 
+jobs:
+ reviewJob:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Perform code review
+     run: echo "pmd review..."
 
 
 
