@@ -233,6 +233,40 @@ jobs:
 
 Save the file and run it 
 Go to Actions --> click on your workflow name on left side --> click on Run workflow.
+=======================================================
+
+Event triggers:
+========================================================
+
+1. push: on push to any branch in the repo will trigger execution of workflow
+Example:
+name: Dependent job execution
+on: 
+ push:
+2. create: on creation of a branch or a new tag will trigger execution of workflow
+Example:
+name: Dependent job execution
+on: 
+ create:
+3. delete: on deletion of a branch or a new tag will trigger the exeuction of workflow
+Example:
+name: Dependent job execution
+on: 
+ delete:
+4. push: trigger the workflow when commit occurs on specific branches
+
+name: Dependent job execution
+on: 
+ push: [main]
+jobs:
+ reviewJob:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Perform code review
+     run: echo "pmd review..."
+
+
+
 
 
 
