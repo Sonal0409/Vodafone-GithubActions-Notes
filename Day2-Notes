@@ -17,3 +17,21 @@ jobs:
      uses: actions/checkout@v4
 
 Save and see the workflow execution
+
+Demo 2: Test the code:
+
+name: nodejs App Build 
+on: 
+ push:
+  branches:
+   - master
+jobs:
+ test:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Clone the repo
+     uses: actions/checkout@v4
+   - name: Install dependencies
+     run: npm ci
+   - name: Test code
+     run: npm run test
