@@ -1,0 +1,18 @@
+1. Fork the nodejs repository:
+
+https://github.com/Sonal0409/Nodejs-GithubActions-Conditions.git
+
+Go to actions and setup your workflow and add below code
+
+name: nodejs App Build 
+on: 
+ push:
+  branches:
+   - master
+jobs:
+ runs-on: ubuntu-latest
+ steps:
+  - name: Clone the repo
+    uses: actions/checkout@v4
+
+Save and see the workflow execution
