@@ -239,7 +239,32 @@ success(): if any previous steps has success , function returns value = true
 always(): even if previous steps have been cancelled, always run the current step
 cancelled(): if previous steps have been cancelled, run the current steps
 
+=======================================================================
+Continue to run on error. Even if the current step fails, github workflow will continue to run the next steps.
 
+
+name: nodejs App Build 
+on: 
+ push:
+  branches:
+   - master
+jobs:
+ test-job:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Clone the repo
+     uses: actions/checkout@v4
+   - name: Install dependencies
+     run: npm ci
+   - name: Test code
+     id: run-tests
+     continue-on-error: true
+     run: npm run test
+   - name: Upload test report on github 
+     uses: actions/upload-artifact@v4
+     with:
+      name: test-report
+      path: test.json
 
 
 
