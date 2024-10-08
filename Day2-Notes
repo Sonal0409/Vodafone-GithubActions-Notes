@@ -10,9 +10,10 @@ on:
   branches:
    - master
 jobs:
- runs-on: ubuntu-latest
- steps:
-  - name: Clone the repo
-    uses: actions/checkout@v4
+ test:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Clone the repo
+     uses: actions/checkout@v4
 
 Save and see the workflow execution
