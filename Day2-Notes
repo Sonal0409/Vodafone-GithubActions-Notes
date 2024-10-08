@@ -78,6 +78,15 @@ jobs:
 =========================================================
 Upload artifact from runner to github repo
 
+Upload Artifact : 
+===========================
+Suppose a step in a job generates a file or an artifact 
+and from the runner machine we want to fetch it on our github repo 
+Then we use uploadArtifact concept
+
+Artifact is on Runner --> upload it --> github repo 
+
+
 
 name: nodejs App Build 
 on: 
