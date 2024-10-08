@@ -197,6 +197,49 @@ jobs:
    - name: Deploy Code 
      run: echo "deploying.."
 
+====================================================
+If condition and special functions:
+=======================================================
+
+Go to the repo --> src folder --> components--> take the last file MainContent.test.jsx --> edit the last line --> replace 'help-area' with 'help-are'
+
+Now run the below code->  the test step has failed--> repo steps is executed. if test step is passed, report step will be skipped.
+
+
+
+name: nodejs App Build 
+on: 
+ push:
+  branches:
+   - master
+jobs:
+ test-job:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Clone the repo
+     uses: actions/checkout@v4
+   - name: Install dependencies
+     run: npm ci
+   - name: Test code
+     id: run-tests
+     run: npm run test
+   - name: Upload test report on github 
+     if: failure() && steps.run-tests.outcome == 'failure'
+     uses: actions/upload-artifact@v4
+     with:
+      name: test-report
+      path: test.json
+
+
+
+
+
+
+
+
+
+
+
 
 
 
