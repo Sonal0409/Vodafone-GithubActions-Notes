@@ -300,6 +300,39 @@ jobs:
    - name: Check if artifact is downloaded
      run: ls -R 
 
+============================================================================
+Matrix strategy:
+=============================================================================
+name: matrix in githubactions
+on:
+ push:
+  branches:
+   - master
+jobs:
+ build-job:
+  continue-on-error: true
+  strategy:
+   matrix:
+    node-version: [12,14,16]
+    operating-system: [ubuntu-latest, windows-latest]
+    exclude:
+     - node-version: 12
+       operating-system: windows-latest
+    include:
+     - node-version: 18
+       operating-system: ubuntu-latest  
+  runs-on: ${{matrix.operating-system}}
+  steps:
+   - name: Clone the code 
+     uses: actions/checkout@v3
+   - name: Install nodeJS 
+     uses: actions/setup-node@v3
+     with:
+      node-version: ${{matrix.node-version}}
+   - name: Install dependencies 
+     run: npm ci
+   - name: Build the code 
+     run: npm run build
 
 
 
