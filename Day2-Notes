@@ -232,7 +232,12 @@ jobs:
 
 
 
+4 types of special functions which are used in the if conditions
 
+failure(): if any previous steps has failed , function returns value = true
+success(): if any previous steps has success , function returns value = true
+always(): even if previous steps have been cancelled, always run the current step
+cancelled(): if previous steps have been cancelled, run the current steps
 
 
 
