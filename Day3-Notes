@@ -14,3 +14,24 @@ Create an ec2 server
 Create a new repo with readme file in it
 
 Go to repo --> go to repo settings--> left side --> actions--> click on it -->you will see runners --> click on it --> on right side self hosted runners--> click on it
+
+Configure and run the Runner.
+
+Now go to actions --> create a workflow 
+
+name: Jobs on selfhosted runner 
+on:
+  push:
+    branches:
+      - main 
+jobs:
+  reviewJob:
+   runs-on: self-hosted
+   steps:
+    - name: review the code 
+      run: echo "review the code"
+  buildJob:
+   runs-on: self-hosted
+   steps:
+    - name: build the code 
+      run: echo "Build the code"
