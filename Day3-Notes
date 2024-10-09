@@ -6,3 +6,9 @@ A self hosted runner are servers that you will create and maintain to exeucte yo
 With self hosted runner we will have more control on the server with respect to OS version, softwares and packages
 self hosted runner -> you can have your custom configuration and packages on server.
 self hosted runner connect to github using github actions self hosted runner application
+
+
+Demo:
+==============================
+Create an ec2 server
+Create a new repo with readme file in it
