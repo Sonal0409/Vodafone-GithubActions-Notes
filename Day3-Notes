@@ -222,7 +222,29 @@ jobs:
            sudo kubectl run podaction --image ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.imagename }}:latest
 
 
+========================================================================
+Go to the repository and add the below code in main.yml
 
+
+name: CI/CD workflow 
+on:
+ workflow_call:
+jobs:
+  buildJob:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Clone the code
+       uses: actions/checkout@v4
+     - name: Download Java and Maven
+       uses: actions/setup-java@v4
+       with: 
+        distribution: 'temurin'
+        java-version: '11'
+        cache: 'maven'
+     - name: Setup Docker 
+       uses: docker/setup-buildx-action@v3
+     - name: Build the code 
+       run: mvn package
 
 
 
