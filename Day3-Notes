@@ -35,3 +35,56 @@ jobs:
    steps:
     - name: build the code 
       run: echo "Build the code"
+
+
+
+==================================================
+Build and Deploy Java application usign github actions:
+====================================================
+1. Fork the given repository:
+
+# https://github.com/Sonal0409/DevOps-Capstone-Project.git
+
+Go to actions --> click on setup your own workflow 
+Add the below script:
+
+name: CI/CD workflow 
+on:
+  push:
+   branches:
+     - master
+jobs:
+  buildandDeploy:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Clone the code
+       uses: actions/checkout@v4
+     - name: Download Java and Maven
+       uses: actions/setup-java@v4
+       with: 
+        distribution: 'temurin'
+        java-version: '11'
+        cache: 'maven'
+     - name: Build the code 
+       run: mvn package
+
+
+Save the file
+go to actions and see job execution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
