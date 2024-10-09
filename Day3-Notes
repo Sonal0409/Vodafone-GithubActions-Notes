@@ -72,6 +72,20 @@ jobs:
 Save the file
 go to actions and see job execution
 
+==========================================================
+Creation of secret action variables in github repository and using them on github action workflow.
+==========================================================
+Whenever we have to use sensitive data on our workflow, we will create secret envrionment variables on github repo 
+we will then refer to the variable in the workflow.
+In action workflow we refer to the variable as ${{secrets.VARIABLE}}
+
+Demo: 
+Go to settings  of the repo --> On the left side you will see secrets and variables --> click on it --> Click on Actions --> Click on Secrets 
+Click on Repository secrets --> Give name as DOCKERHUB_USERNAME  --> give value --> click on add secret
+Scroll down --> click on New repository secret --> give name as DOCKERHUB_TOKEN --> give dockerhub password -->click on add secret
+
+Now you will see 2 secrets created.
+
 
 
 
