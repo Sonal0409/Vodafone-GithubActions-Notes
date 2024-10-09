@@ -119,7 +119,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+===============================================================
+Go to the repository with java code and create a new file
+Give name to file -> dockerfile
 
+add below content:
+
+FROM tomcat:8
+COPY target/java-example.war /usr/local/tomcat/webapps/ROOT.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
 
 
 
