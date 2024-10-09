@@ -246,7 +246,18 @@ jobs:
      - name: Build the code 
        run: mvn package
 
+==================================================
+Go to Actions dashboard--> click on New workflow button --> click on setup the workflwo yourself --> give a new name to the file as caller.yml  and add below code
 
+name: A parent workflow that calls another workflow 
+on:
+ push 
+jobs:
+  buildJob:
+   uses: ./.github/workflows/main.yml
+
+
+Save the file
 
 
 
