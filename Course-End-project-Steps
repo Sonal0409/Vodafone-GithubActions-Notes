@@ -104,15 +104,12 @@ Step 3: Add cache depenedencies in the workflow:
 =======================
 go to .github/worflows/main.yml
 
-Opent eh mian.yml
+Open the mian.yml
 
 remove the previous code and add this come
 
 name: CICD with End project
-on:
- push:
-  branches:
-   - master
+on: workflow_call
 jobs:
   deploy:
     runs-on: ubuntu-latest
