@@ -86,7 +86,18 @@ jobs:
        push: true 
        tags: ${{ secrets.DOCKERHUB_USERNAME }}/myprojectimage:latest
 
+Go to Actions dashboard--> click on New workflow button --> click on setup the workflwo yourself --> give a new name to the file as Reusable_workflow.yml
+  and add below code
 
+name: Call the CICD workflow
+on: push
+jobs:
+  callCICD:
+   uses: ./.github/workflows/main.yml
+   secrets: inherit
+
+
+Save the file
 
 
 
